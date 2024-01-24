@@ -5,6 +5,10 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import android.widget.TextView
 import net.objecthunter.exp4j.ExpressionBuilder
+import kotlin.math.sqrt
+import kotlin.math.E
+
+
 
 class MainActivity : ComponentActivity() {
     lateinit var math_operation: TextView
@@ -29,6 +33,12 @@ class MainActivity : ComponentActivity() {
     lateinit var minus_btn: TextView
     lateinit var equal_btn: TextView
     lateinit var dot_btn: TextView
+
+    lateinit var sqrt_btn: TextView
+    lateinit var e_btn: TextView
+    lateinit var x_btn: TextView
+    lateinit var per_btn: TextView
+    lateinit var log_btn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +66,12 @@ class MainActivity : ComponentActivity() {
         minus_btn = findViewById(R.id.minus_btn)
         equal_btn = findViewById(R.id.equal_btn)
         dot_btn = findViewById(R.id.dot_btn)
+        sqrt_btn = findViewById(R.id.sqrt_btn)
+        e_btn = findViewById(R.id.e_btn)
+        x_btn = findViewById(R.id.x_btn)
+        log_btn = findViewById(R.id.log_btn)
+        per_btn = findViewById(R.id.per_btn)
+
         btn_0.setOnClickListener { setTextFields("0") }
         btn_1.setOnClickListener { setTextFields("1") }
         btn_2.setOnClickListener { setTextFields("2") }
@@ -106,6 +122,63 @@ class MainActivity : ComponentActivity() {
                     result_text.text = result.toString()
             } catch(e:Exception) {
                 Log.d("Error", "message:")
+            }
+        }
+
+        sqrt_btn.setOnClickListener {
+            try {
+                val expression = math_operation.text.toString()
+                if (expression.isNotEmpty()) {
+                    val result = sqrt(expression.toDouble())
+                    result_text.text = result.toString()
+                }
+            } catch (e: Exception) {
+                Log.d("Error", "Error calculating square root: $e")
+            }
+        }
+        e_btn.setOnClickListener { result_text.text = E.toString() }
+        x_btn.setOnClickListener {
+            try {
+                val expression = math_operation.text.toString()
+
+                if (expression.isNotEmpty()) {
+                    val base = expression.toDouble()
+                    val result = Math.pow(base, 2.0)
+
+                    result_text.text = result.toString()
+                }
+            } catch (e: Exception) {
+                Log.d("Error", "Error calculating square: $e")
+            }
+        }
+        per_btn.setOnClickListener {
+            try {
+                val expression = math_operation.text.toString()
+
+                if (expression.isNotEmpty()) {
+                    val value = expression.toDouble()
+                    val percentage = value * 0.01
+
+                    result_text.text = percentage.toString()
+                }
+            } catch (e: Exception) {
+                Log.d("Error", "Error calculating percentage: $e")
+            }
+        }
+        log_btn.setOnClickListener {
+            try {
+                val expression = math_operation.text.toString()
+
+                // Проверяем, что выражение не пусто
+                if (expression.isNotEmpty()) {
+                    val value = expression.toDouble()
+                    val result = Math.log(value)
+
+                    // Отображаем результат в поле результата
+                    result_text.text = result.toString()
+                }
+            } catch (e: Exception) {
+                Log.d("Error", "Error calculating natural logarithm: $e")
             }
         }
     }

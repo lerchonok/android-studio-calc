@@ -4,9 +4,9 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">#CD5C5C</item>
-        <item name="android:textSize">21sp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:background">#423d3d</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">#CD5C5C</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
     </style>
@@ -15,9 +15,20 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">#808080</item>
-        <item name="android:textSize">21sp</item>
+        <item name="android:background">#a89999</item>
+        <item name="android:textSize">35sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">0.5dp</item>
+    </style>
+
+    <style name="ExtraActionButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">#423d3d</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">#d99898</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
     </style>
