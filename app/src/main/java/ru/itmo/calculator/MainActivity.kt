@@ -7,32 +7,55 @@ import android.widget.TextView
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : ComponentActivity() {
-    val math_operation: TextView = findViewById(R.id.math_operation)
-    val result_text: TextView = findViewById(R.id.result_text)
-    val btn_0: TextView = findViewById(R.id.btn_0)
-    val btn_1: TextView = findViewById(R.id.btn_1)
-    val btn_2: TextView = findViewById(R.id.btn_2)
-    val btn_3: TextView = findViewById(R.id.btn_3)
-    val btn_4: TextView = findViewById(R.id.btn_4)
-    val btn_5: TextView = findViewById(R.id.btn_5)
-    val btn_6: TextView = findViewById(R.id.btn_6)
-    val btn_7: TextView = findViewById(R.id.btn_7)
-    val btn_8: TextView = findViewById(R.id.btn_8)
-    val btn_9: TextView = findViewById(R.id.btn_9)
-    val ac_btn: TextView = findViewById(R.id.ac_btn)
-    val back_btn: TextView = findViewById(R.id.back_btn)
-    val par1_btn: TextView = findViewById(R.id.par1_btn)
-    val par2_btn: TextView = findViewById(R.id.par2_btn)
-    val div_btn: TextView = findViewById(R.id.div_btn)
-    val mult_btn: TextView = findViewById(R.id.mult_btn)
-    val plus_btn: TextView = findViewById(R.id.plus_btn)
-    val minus_btn: TextView = findViewById(R.id.minus_btn)
-    val equal_btn: TextView = findViewById(R.id.equal_btn)
-    val dot_btn: TextView = findViewById(R.id.dot_btn)
+    lateinit var math_operation: TextView
+    lateinit var result_text: TextView
+    lateinit var btn_0: TextView
+    lateinit var btn_1: TextView
+    lateinit var btn_2: TextView
+    lateinit var btn_3: TextView
+    lateinit var btn_4: TextView
+    lateinit var btn_5: TextView
+    lateinit var btn_6: TextView
+    lateinit var btn_7: TextView
+    lateinit var btn_8: TextView
+    lateinit var btn_9: TextView
+    lateinit var ac_btn: TextView
+    lateinit var back_btn: TextView
+    lateinit var par1_btn: TextView
+    lateinit var par2_btn: TextView
+    lateinit var div_btn: TextView
+    lateinit var mult_btn: TextView
+    lateinit var plus_btn: TextView
+    lateinit var minus_btn: TextView
+    lateinit var equal_btn: TextView
+    lateinit var dot_btn: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        math_operation = findViewById(R.id.math_operation)
+        result_text = findViewById(R.id.result_text)
+        btn_0 = findViewById(R.id.btn_0)
+        btn_1 = findViewById(R.id.btn_1)
+        btn_2 = findViewById(R.id.btn_2)
+        btn_3 = findViewById(R.id.btn_3)
+        btn_4 = findViewById(R.id.btn_4)
+        btn_5 = findViewById(R.id.btn_5)
+        btn_6 = findViewById(R.id.btn_6)
+        btn_7 = findViewById(R.id.btn_7)
+        btn_8 = findViewById(R.id.btn_8)
+        btn_9 = findViewById(R.id.btn_9)
+        ac_btn = findViewById(R.id.ac_btn)
+        back_btn = findViewById(R.id.back_btn)
+        par1_btn = findViewById(R.id.par1_btn)
+        par2_btn = findViewById(R.id.par2_btn)
+        div_btn = findViewById(R.id.div_btn)
+        mult_btn = findViewById(R.id.mult_btn)
+        plus_btn = findViewById(R.id.plus_btn)
+        minus_btn = findViewById(R.id.minus_btn)
+        equal_btn = findViewById(R.id.equal_btn)
+        dot_btn = findViewById(R.id.dot_btn)
         btn_0.setOnClickListener { setTextFields("0") }
         btn_1.setOnClickListener { setTextFields("1") }
         btn_2.setOnClickListener { setTextFields("2") }
@@ -54,8 +77,8 @@ class MainActivity : ComponentActivity() {
         dot_btn.setOnClickListener {
             val currentText = math_operation.text.toString()
 
-            if (!currentText.endsWith(",") && !currentText.contains(",")) {
-                math_operation.append(",")
+            if (!currentText.endsWith(".") && !currentText.contains(".")) {
+                math_operation.append(".")
             }
         }
 
