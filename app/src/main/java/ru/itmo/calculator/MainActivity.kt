@@ -132,11 +132,15 @@ class MainActivity : ComponentActivity() {
                     val result = sqrt(expression.toDouble())
                     result_text.text = result.toString()
                 }
-            } catch (e: Exception) {
+            } catch (e: NumberFormatException) {
                 Log.d("Error", "Error calculating square root: $e")
             }
         }
-        e_btn.setOnClickListener { result_text.text = E.toString() }
+
+        e_btn.setOnClickListener {
+            result_text.text = E.toString()
+        }
+
         x_btn.setOnClickListener {
             try {
                 val expression = math_operation.text.toString()
@@ -147,10 +151,11 @@ class MainActivity : ComponentActivity() {
 
                     result_text.text = result.toString()
                 }
-            } catch (e: Exception) {
+            } catch (e: NumberFormatException) {
                 Log.d("Error", "Error calculating square: $e")
             }
         }
+
         per_btn.setOnClickListener {
             try {
                 val expression = math_operation.text.toString()
@@ -161,10 +166,11 @@ class MainActivity : ComponentActivity() {
 
                     result_text.text = percentage.toString()
                 }
-            } catch (e: Exception) {
+            } catch (e: NumberFormatException) {
                 Log.d("Error", "Error calculating percentage: $e")
             }
         }
+
         log_btn.setOnClickListener {
             try {
                 val expression = math_operation.text.toString()
@@ -177,7 +183,7 @@ class MainActivity : ComponentActivity() {
                     // Отображаем результат в поле результата
                     result_text.text = result.toString()
                 }
-            } catch (e: Exception) {
+            } catch (e: NumberFormatException) {
                 Log.d("Error", "Error calculating natural logarithm: $e")
             }
         }
