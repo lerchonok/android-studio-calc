@@ -164,7 +164,7 @@
             <TextView
                 style="@style/NumberButton"
                 android:id="@+id/dot_btn"
-                android:text="."
+                android:text=","
                 />
 
             <TextView

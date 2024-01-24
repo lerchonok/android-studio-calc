@@ -1,9 +1,10 @@
 package ru.itmo.calculator
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import android.widget.TextView
+import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : ComponentActivity() {
     val math_operation: TextView = findViewById(R.id.math_operation)
@@ -50,6 +51,14 @@ class MainActivity : ComponentActivity() {
         par1_btn.setOnClickListener { setTextFields("(") }
         par2_btn.setOnClickListener { setTextFields(")") }
 
+        dot_btn.setOnClickListener {
+            val currentText = math_operation.text.toString()
+
+            if (!currentText.endsWith(",") && !currentText.contains(",")) {
+                math_operation.append(",")
+            }
+        }
+
         ac_btn.setOnClickListener {
             math_operation.text = ""
             result_text.text = ""
@@ -61,9 +70,28 @@ class MainActivity : ComponentActivity() {
                 math_operation.text = str.substring(0, str.length - 1)
             result_text.text = ""
         }
+
+        equal_btn.setOnClickListener {
+            try {
+                val ex = ExpressionBuilder(math_operation.text.toString()).build()
+                val result = ex.evaluate()
+
+                val longRes = result.toLong()
+                if (result == longRes.toDouble())
+                    result_text.text = longRes.toString()
+                else
+                    result_text.text = result.toString()
+            } catch(e:Exception) {
+                Log.d("Error", "message:")
+            }
+        }
     }
 
     fun setTextFields(str: String) {
+        if(result_text.text != "") {
+            math_operation.text = result_text.text
+            result_text.text = ""
+        }
         math_operation.append(str)
     }
 }
